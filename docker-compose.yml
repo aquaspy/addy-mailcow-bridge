@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  addy-mailcow-bridge:
+    image: theselfhostingart/addy-mailcow-bridge:v1  # Pulls from Docker Hub
+    ports:
+      - "6510:6510"  # Map host port 6510 to container port 6510
+    environment:
+      - MAILCOW_DOMAIN=https://CHANGEME.com  # Use your own mailcow domain here.
+    restart: unless-stopped  # Restart on failure (good for production)
